@@ -2,7 +2,16 @@
 
 {% block content %}
 {{block.super}}
+
+{% for image in images %}
+<div>
+    
+    <a   data-caption="{{image.category}}"  href="{{image.image.url}}"data-fancybox>
+        <img class="img-responsive" style='width:100px; height:225px' src="{{image.image.url}}" alt="image">
+    </a>
+</div>
+
+{% endfor %}
 {% endblock %}
 
 
-<!DOCTYPE html><br /><html lang="en"><br /><head><br />  <meta charset="UTF-8"><br />  <title>My MDB Django Project</title><br /><br />  </head><br /><body><br /><br />  <div style="height: 100vh"><br />    <div class="flex-center flex-column"><br />      <h1 class="animated fadeIn mb-4">MDBootstrap loves Django <i class="fa fa-heart red-text"></i></h1><br />    </div><br />   </div><br /><br />  <br />    new WOW().init();<br />  </script><br /></body><br /></html>
