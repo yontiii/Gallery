@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
  <!-- Material Design for Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet"><br />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="{ % static 'js/index.js' % }">
 </head>
 <body>
   {%  include "navbar.html" %}

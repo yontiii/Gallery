@@ -4,10 +4,11 @@
 {{block.super}}
 
 {% for image in images %}
+
 <div>
     
     <a   data-caption="{{image.category}}"  href="{{image.image.url}}"data-fancybox>
-        <img class="img-responsive" style='width:100px; height:225px' src="{{image.image.url}}" alt="image">
+        <img class="img-responsive" style='width:300px; height:250px' src="{{image.image.url}}" alt="image">
     </a>
 </div>
 {% endfor %}
