@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +17,14 @@
  <!-- Material Design for Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/css/mdb.min.css" rel="stylesheet"><br />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  <link rel="stylesheet" href="{ % static 'js/index.js' % }">
+  
 </head>
 <body>
   {%  include "navbar.html" %}
+
+  <div class="jumbotron">
+    <h2 class="text-muted" style="text-align:center;">THE CLICKS GALLERY</h2>
+  </div>
     {% block content %}
     {% endblock %}
 
@@ -37,5 +41,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.16/js/mdb.min.js"></script>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

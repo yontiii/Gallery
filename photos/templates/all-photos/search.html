@@ -16,7 +16,10 @@
   {% if categories %}
     {% for category in categories %}
       <div class="col-sm-6 col-md-3">
-          <img src="{{category.image.url}}" alt="">
+          <div class="card">
+                <img src="{{category.image.url}}" alt="" class="card-img-top" style="width:400px;height:500px;margin-right:15px;">
+          </div>
+         
       </div>
     {% endfor %}
   {% endif %}

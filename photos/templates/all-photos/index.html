@@ -2,16 +2,44 @@
 
 {% block content %}
 {{block.super}}
+<style>
+    span{
+        font-size: 15px;
+        font-family: 'Courier New', Courier, monospace
 
-{% for image in images %}
+    }
+    .thumbnail{
+        border-radius: 40px;
+    }
+</style>
+<div class="container">
 
-<div>
-    
-    <a   data-caption="{{image.category}}"  href="{{image.image.url}}"data-fancybox>
-        <img class="img-responsive" style='width:300px; height:250px' src="{{image.image.url}}" alt="image">
-    </a>
+        <div class="row">
+                {% for image in images %}
+                <div class="col-md-4">
+                        <div class="thumbnail">
+                                <div class="view overlay">
+                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br>          "  href="{{image.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
+                                                <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
+                                                
+                                            </a>
+                                            <button class="btn btn-default" style="text-align:center;">Copy Link</button>
+                                </div>
+                            <div>
+                            
+                            </div>
+                                
+                                
+                            </div>
+                </div>
+            {% endfor %}
+        </div>
 </div>
-{% endfor %}
+
+
+
+
+
 {% endblock %}
 
 
