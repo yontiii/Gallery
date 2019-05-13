@@ -5,7 +5,9 @@ $(document).ready(function(){
     });
 
  copyimage = () => {
-    document.getElementById("imagelink").select()
-    document.execCommand("copy");   
+    var copyLink = document.getElementById("imagelink")
+    copyLink.select()
+    document.execCommand("copy")
+    
 } 
 })
