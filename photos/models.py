@@ -49,6 +49,21 @@ class Image(models.Model):
         categories = cls.objects.filter(category__category__icontains=search_term)
         return categories
     
+    @classmethod
+    def get_image_by_id(cls, id):
+        images = cls.objects.filter(location=location)
+        return images
+    
+    @classmethod
+    def filter_by_location(cls, location):
+        images = cls.objects.filter(location=location)
+        return images
+    
+    @classmethod
+    def update_image(cls, id):
+        images = cls.objects.filter(id=id).update(id=id)
+        return images
+    
     def __str__(self):
         return self.image_name
     

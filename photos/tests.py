@@ -2,7 +2,6 @@ from django.test import TestCase
 from .models import Image,Location,Category
 
 # Create your tests here.
-
 class ImageTestClass(TestCase):
     
     # Setup method
@@ -44,10 +43,10 @@ class ImageTestClass(TestCase):
     def test_update_method(self):
         
         
-        
 class LocationTestClass(TestCase):
     # SetUp Class
     def setUp(self):
+        
         self.location = Location(location="Nairobi")
         
     def tearDown(self):
