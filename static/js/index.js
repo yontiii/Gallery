@@ -5,5 +5,5 @@ $(function () {
 
  copyimage = () => {
     document.getElementById("imagelink").select()
-    document.execCommand("Copy");   
+    document.execCommand("copy");   
 } 
