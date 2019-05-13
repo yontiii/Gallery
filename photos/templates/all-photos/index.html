@@ -23,9 +23,43 @@
                                                 <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
                                                 
                                             </a>
-                                            <button class="btn btn-default" style="text-align:center;">Copy Link</button>
-                                            <!-- <input type="text" value="{{image.image.url}}" id="imagelink">
-                                            <button class="btn btn-default" onclick="copyimage()">copy</button> -->
+                                            <button class="btn btn-default" style="text-align:center;" onclick="copyimage()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
+                                            <input type="text" value="{{image.image.url}}" id="imagelink" hidden>
+<!-- Central Modal Medium Success -->
+<div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-notify modal-success" role="document">
+  <!--Content-->
+  <div class="modal-content">
+    <!--Header-->
+    <div class="modal-header">
+      <p class="heading lead">Copy Link</p>
+
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true" class="white-text">&times;</span>
+      </button>
+    </div>
+
+    <!--Body-->
+    <div class="modal-body">
+      <div class="text-center">
+        <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+            <p class="text-muted">Link Successfully Copied</p>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <div class="modal-footer justify-content-center">
+      <!-- <a type="button" class="btn btn-success">Get it now <i class="far fa-gem ml-1 text-white"></i></a> -->
+      <a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
+      <a href="{{image.image.url}}" target="_blank" class="btn btn-success">View Full Image</a>
+    </div>
+  </div>
+  <!--/.Content-->
+</div>
+</div>
+<!-- Central Modal Medium Success-->
+                    
                                 </div>
                             <div>
                             

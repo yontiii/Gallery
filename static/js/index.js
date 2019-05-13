@@ -3,7 +3,7 @@ $(function () {
     $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
     });
 
-function copyimage(){
+ copyimage = () => {
     document.getElementById("imagelink").select()
     document.execCommand("Copy");   
-}
+} 
