@@ -25,19 +25,17 @@
         <div class="row">
                 {% for image in images %}
                 <div class="col-md-4">
-                        <div class="thumbnail">
+                        <div class="thumbnail animated">
                                 <div class="view overlay">
-                                        <!-- /<a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}     "  href="{{image.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'> -->
-                                               <a href="" data-toggle="modal" data-target="#imageModal"><img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image"></a> 
+                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}     "  href="{{image.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'>
+                                               <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
                                                 
-                                            <!-- </a> -->
-
-
+                                            </a>
 
                                             <button class="btn btn-default" style="text-align:center;" onclick="copyLink()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
                                             <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedImage" hidden>
 <!-- Central Modal Medium Success -->
-<div class="modal fade right animated slideDown " id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade animated zoomInRight" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-notify modal-success" role="document">
   <!--Content-->
@@ -54,7 +52,7 @@ aria-hidden="true">
     <!--Body-->
     <div class="modal-body">
       <div class="text-center">
-        <i class="fas fa-check fa-4x mb-3 animated rotateIn" style="color:#00C853"></i>
+        <i class="fas fa-check fa-4x mb-3 animated rotateIn" data-delay="1s" style="color:#00C853"></i>
             <p class="text-muted">Link Successfully Copied</p>
       </div>
     </div>
