@@ -12,6 +12,13 @@
         border-radius: 40px;
     }
 </style>
+<script>
+    function copyLink(){
+        var copyText = document.getElementById("linkedImage")
+        copyText.select()
+        document.execCommand("copy")
+    }
+</script>
 
 <div class="container">
 
@@ -20,14 +27,17 @@
                 <div class="col-md-4">
                         <div class="thumbnail">
                                 <div class="view overlay">
-                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}         "  href="{{image.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
-                                                <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
+                                        <!-- /<a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}     "  href="{{image.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'> -->
+                                               <a href="" data-toggle="modal" data-target="#imageModal"><img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image"></a> 
                                                 
-                                            </a>
-                                            <button class="btn btn-default" style="text-align:center;" onclick="copyimage()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
-                                            <input type="text" value="{{image.image.url}}" id="imagelink" hidden>
+                                            <!-- </a> -->
+
+
+
+                                            <button class="btn btn-default" style="text-align:center;" onclick="copyLink()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
+                                            <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedImage" hidden>
 <!-- Central Modal Medium Success -->
-<div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade right animated slideDown " id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-notify modal-success" role="document">
   <!--Content-->
