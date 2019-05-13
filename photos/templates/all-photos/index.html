@@ -13,47 +13,33 @@
     }
 </style>
 <script>
-// MDB Lightbox Init
-$(function () {
-$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-});
+
+
+$(document).ready(function(){
+    $(function () {
+    $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+    });
 
  copyimage = () => {
     document.getElementById("imagelink").select()
     document.execCommand("copy");   
 } 
+})
 
 </script>
 <div class="container">
 
         <div class="row">
                 {% for image in images %}
-                <!-- <div class="col-md-4">
+                <div class="col-md-4">
                         <div class="thumbnail">
                                 <div class="view overlay">
                                         <a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}         "  href="{{image.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
                                                 <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
                                                 
-                                            </a> -->
-
-                        
-
-                                                <!-- First column -->
-                                              
-                                                  <div id="mdb-lightbox-ui"></div>
-                                              
-                                                  <div class="mdb-lightbox no-margin">
-                                              
-                                                    <figure class="col-md-4">
-                                                      <a href="{{image.image.url}}" data-size="1600x1067">
-                                                        <img src="{{image.image.url}}" class="img-fluid">
-                                                      </a>
-                                                      <figcaption>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus nobis sit veritatis
-                                                        cumque! Placeat voluptate aut pariatur! Nihil molestiae quos explicabo dignissimos quam cupiditate
-                                                        sequi corporis eaque corrupti. Vel, est.</figcaption>
-                                                    </figure>
+                                            </a>
                                             <button class="btn btn-default" style="text-align:center;" onclick="copyimage()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
-                                            <input type="text" value="{{image.image.url}}" id="imagelink">
+                                            <input type="text" value="{{image.image.url}}" id="imagelink" hidden>
 <!-- Central Modal Medium Success -->
 <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 aria-hidden="true">
