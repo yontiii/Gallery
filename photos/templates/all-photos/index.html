@@ -3,82 +3,84 @@
 {% block content %}
 {{block.super}}
 <style>
-    span{
-        font-size: 15px;
-        font-family: 'Courier New', Courier, monospace
+  span {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace
+  }
 
-    }
-    .thumbnail{
-        border-radius: 40px;
-    }
+  .thumbnail {
+    border-radius: 40px;
+  }
 </style>
 <script>
-    function copyLink(){
-        var copyText = document.getElementById("linkedImage")
-        copyText.select()
-        document.execCommand("copy")
-    }
+  function copyLink() {
+    var copyText = document.getElementById("linkedImage")
+    copyText.select()
+    document.execCommand("copy")
+  }
 </script>
 
 <div class="container">
 
-        <div class="row">
-                {% for image in images %}
-                <div class="col-md-4">
-                        <div class="thumbnail animated">
-                                <div class="view overlay">
-                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}     "  href="{{image.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'>
-                                               <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
-                                                
-                                            </a>
+  <div class="row">
+    {% for image in images %}
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="view overlay">
+          <a data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}  <br> {{image.image_description}}   "
+            href="{{image.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'>
+            <img class="img-responsive" style='width:500px; height:400px' src="{{image.image.url}}" alt="image">
 
-                                            <button class="btn btn-default" style="text-align:center;" onclick="copyLink()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
-                                            <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedImage" hidden>
-<!-- Central Modal Medium Success -->
-<div class="modal fade animated zoomInRight" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-notify modal-success" role="document">
-  <!--Content-->
-  <div class="modal-content">
-    <!--Header-->
-    <div class="modal-header">
-      <p class="heading lead">Copy Link</p>
+          </a>
 
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true" class="white-text">&times;</span>
-      </button>
-    </div>
+          <button class="btn btn-default" style="text-align:center;" onclick="copyLink()" data-toggle="modal"
+            data-target="#linkModal">Copy Link</button>
+          <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedImage" hidden>
+          <!-- Central Modal Medium Success -->
+          <div class="modal fade" id="linkModal" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                  <p class="heading lead">Copy Link</p>
 
-    <!--Body-->
-    <div class="modal-body">
-      <div class="text-center">
-        <i class="fas fa-check fa-4x mb-3 animated rotateIn" data-delay="1s" style="color:#00C853"></i>
-            <p class="text-muted">Link Successfully Copied</p>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                  </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                  <div class="text-center">
+                    <i class="fas fa-check fa-4x mb-3 animated rotateIn" data-delay="1s" style="color:#00C853"></i>
+                    <p class="text-muted">Link Successfully Copied</p>
+                  </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                  <!-- <a type="button" class="btn btn-success">Get it now <i class="far fa-gem ml-1 text-white"></i></a> -->
+                  <a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
+                  <a href="{{image.image.url}}" target="_blank" class="btn btn-success">View Full Image</a>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+          </div>
+          <!-- Central Modal Medium Success-->
+
+        </div>
+        <div>
+
+        </div>
+
+
       </div>
     </div>
-
-    <!--Footer-->
-    <div class="modal-footer justify-content-center">
-      <!-- <a type="button" class="btn btn-success">Get it now <i class="far fa-gem ml-1 text-white"></i></a> -->
-      <a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
-      <a href="{{image.image.url}}" target="_blank" class="btn btn-success">View Full Image</a>
-    </div>
+    {% endfor %}
   </div>
-  <!--/.Content-->
-</div>
-</div>
-<!-- Central Modal Medium Success-->
-                    
-                                </div>
-                            <div>
-                            
-                            </div>
-                                
-                                
-                            </div>
-                </div>
-            {% endfor %}
-        </div>
 </div>
 
 
@@ -86,5 +88,3 @@ aria-hidden="true">
 
 
 {% endblock %}
-
-

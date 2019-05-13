@@ -1,68 +1,70 @@
-{%extends 'all-photos/base.html'%} 
+{%extends 'all-photos/base.html'%}
 {% block content %}
 <div class="container">
 
   <div class="row">
     {% if categories %}
-      <h2>Found {{ categories|length }} of searched term {{message}}</h2>
+    <h2>Found {{ categories|length }} of searched term {{message}}</h2>
     {% else %}
-      <h2> Found 0 images for the search term {{message}}</h2>
+    <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
 
   </div>
 
   <div class="row">
 
-  {% if categories %}
+    {% if categories %}
     {% for category in categories %}
-      <div class="col-sm-6 col-md-3">
-          <div class="card">
-            <a   data-caption=" <span> Category :{{category.category}}</span> <br> Location:{{category.location}}   <p></p>      "  href="{{category.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
-              <img class="img-responsive" style='width:400px; height:300px' src="{{category.image.url}}" alt="image">
-              
-          </a>
-          </div>
-          <button class="btn btn-default" style="text-align:center;" onclick="copyLink()"  data-toggle="modal" data-target="#linkModal">Copy Link</button>
-          <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedimage" hidden>
-<!-- Central Modal Medium Success -->
-<div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-notify modal-success" role="document">
-<!--Content-->
-<div class="modal-content">
-<!--Header-->
-<div class="modal-header">
-<p class="heading lead">Copy Link</p>
+    <div class="col-sm-6 col-md-3">
+      <div class="card">
+        <a data-caption=" <span> Category :{{category.category}}</span> <br> Location:{{category.location}}   <p></p>      "
+          href="{{category.image.url}}" data-fancybox class="card-img-top" style='width:400px; height:600px'>
+          <img class="img-responsive" style='width:400px; height:300px' src="{{category.image.url}}" alt="image">
 
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true" class="white-text">&times;</span>
-</button>
-</div>
-
-<!--Body-->
-<div class="modal-body">
-<div class="text-center">
-<i class="fas fa-check fa-4x mb-3 animated rotateIn" style="color:#00C853"></i>
-<p class="text-muted">Link Successfully Copied</p>
-</div>
-</div>
-
-<!--Footer-->
-<div class="modal-footer justify-content-center">
-<!-- <a type="button" class="btn btn-success">Get it now <i class="far fa-gem ml-1 text-white"></i></a> -->
-<a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
-<a href="{{category.image.url}}" target="_blank" class="btn btn-success">View Full Image</a>
-</div>
-</div>
-<!--/.Content-->
-</div>
-</div>
-<!-- Central Modal Medium Success-->
-          
-         
+        </a>
       </div>
+      <button class="btn btn-default" style="text-align:center;" onclick="copyLink()" data-toggle="modal"
+        data-target="#linkModal">Copy Link</button>
+      <input type="text" value="127.0.0.1:8000/media/images/{{image.image.url}}" id="linkedimage" hidden>
+      <!-- Central Modal Medium Success -->
+      <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+          <!--Content-->
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <p class="heading lead">Copy Link</p>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="white-text">&times;</span>
+              </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+              <div class="text-center">
+                <i class="fas fa-check fa-4x mb-3 animated rotateIn" style="color:#00C853"></i>
+                <p class="text-muted">Link Successfully Copied</p>
+              </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+              <!-- <a type="button" class="btn btn-success">Get it now <i class="far fa-gem ml-1 text-white"></i></a> -->
+              <a type="button" class="btn btn-success" data-dismiss="modal">Close</a>
+              <a href="{{category.image.url}}" target="_blank" class="btn btn-success">View Full Image</a>
+            </div>
+          </div>
+          <!--/.Content-->
+        </div>
+      </div>
+      <!-- Central Modal Medium Success-->
+
+
+    </div>
     {% endfor %}
-  {% endif %}
+    {% endif %}
   </div>
 </div>
 {% endblock %}
