@@ -19,11 +19,13 @@
                 <div class="col-md-4">
                         <div class="thumbnail">
                                 <div class="view overlay">
-                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br>          "  href="{{image.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
+                                        <a   data-caption=" <span> Category :{{image.category}}</span> <br> Location:{{image.location}}         "  href="{{image.image.url}}"data-fancybox class="card-img-top" style='width:400px; height:600px'>
                                                 <img class="img-responsive" style='width:400px; height:300px' src="{{image.image.url}}" alt="image">
                                                 
                                             </a>
                                             <button class="btn btn-default" style="text-align:center;">Copy Link</button>
+                                            <!-- <input type="text" value="{{image.image.url}}" id="imagelink">
+                                            <button class="btn btn-default" onclick="copyimage()">copy</button> -->
                                 </div>
                             <div>
                             

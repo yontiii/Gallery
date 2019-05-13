@@ -45,4 +45,44 @@ class ImageTestClass(TestCase):
         
         
         
+class LocationTestClass(TestCase):
+    # SetUp Class
+    def setUp(self):
+        self.location = Location(location="Nairobi")
+        
+    def tearDown(self):
+        Location.objects.all().delete()
+        
+    def test_save_location(self):
+        self.location.save_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location)>= 1)
+        
+    def test_delete_location(self):
+        self.location.save_location()
+        locations = self.location.delete_location()
+        location = Location.objects.all()
+        self.assertTrue(len(location) <= 0)
+        
+class CategoryTestClass(TestCase):
+     # SetUp Class
+    def setUp(self):
+        self.category = Category(category="Fun")
+        
+    def tearDown(self):
+        Category.objects.all().delete()
+        
+    def test_save_category(self):
+        self.category.save_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category)>= 1)
+        
+    def test_delete_category(self):
+        self.category.save_category()
+        categories = self.category.delete_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) <= 0)
+    
+        
+        
         
